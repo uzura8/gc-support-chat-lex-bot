@@ -35,7 +35,7 @@ exports.handler = function(event, context, callback) {
   switch(event.currentIntent.name) {
     case "selectNum":
       response.dialogAction.fulfillmentState = "Fulfilled";
-      response.dialogAction.message.content = getAnserBySupportNumber(event.currentIntent.slots.selectedNum);
+      response.dialogAction.message.content = getAnserBySupportNumber(event.currentIntent.slots.selectNum);
       break;
 
     default:

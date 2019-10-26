@@ -15,3 +15,5 @@ tags
 
 package-lock.json
 /node_modules/*
+
+/setup.conf

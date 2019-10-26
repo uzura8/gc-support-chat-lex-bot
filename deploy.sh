@@ -1,5 +1,12 @@
 #!/bin/sh
 
-zip -r answerBySelectedNum.zip index.js node_modules
-mv answerBySelectedNum.zip /tmp/
-aws lambda update-function-code --region your-reagion --function-name your-function --zip-file fileb:///tmp/your-function.zip --publish --profile your-profile-name
+# include config file
+CONFIG_FILE="`dirname $0`/setup.conf"
+if [ ! -f $CONFIG_FILE ]; then
+    echo "Not found config file : ${CONFIG_FILE}" ; exit 1
+fi
+. $CONFIG_FILE
+
+zip -r ${FUNCTION}.zip index.js node_modules
+mv ${FUNCTION}.zip /tmp/
+aws lambda update-function-code --region ${REGION} --function-name ${FUNCTION} --zip-file fileb:///tmp/${FUNCTION}.zip --publish --profile ${PROFILE_NAME}

@@ -1,0 +1,5 @@
+#setup.conf
+
+REGION="us-west-2"
+FUNCTION="answerBySelectedNum"
+PROFILE_NAME="default"
